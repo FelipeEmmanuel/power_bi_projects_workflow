@@ -24,7 +24,7 @@
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
-      "name": "c05cb36ed44d5b0b0956",
+      "name": "page_fp_a",
       "visualContainers": [
         {
            "config": "{\"name\":\"3340220800511942e41e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":109.71428571428571,\"y\":57.00840336134454,\"z\":1,\"width\":112.94117647058823,\"height\":224.80672268907563}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDate.Year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"},\"Name\":\"DimDate.Year\",\"NativeReferenceName\":\"Year\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2024L\"}}]]}}}]}}}}]}}}",
@@ -53,7 +53,7 @@
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
-      "name": "c05cb36ed44d5b0b0956",
+      "name": "page_budget_actuals",
       "visualContainers": [
         {
           "config": "{\"name\":\"47bf8aeb653ca75a143e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":549.8507462686567,\"y\":75.22388059701493,\"z\":0,\"width\":634.0298507462686,\"height\":454.92537313432837,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"ModelMeasures.Total Budget\"},{\"queryRef\":\"ModelMeasures.Total Actual\"}],\"Category\":[{\"queryRef\":\"DimDate.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"ModelMeasures\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDate\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Budget\"},\"Name\":\"ModelMeasures.Total Budget\",\"NativeReferenceName\":\"Total Budget\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Actual\"},\"Name\":\"ModelMeasures.Total Actual\",\"NativeReferenceName\":\"Total Actual\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"DimDate.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Budget\"}}}]},\"drillFilterOtherVisuals\":true}}",
