@@ -1,0 +1,49 @@
+table My_Measures
+	lineageTag: 2d34e323-f74d-4b85-b86d-86f4f4ad5934
+
+	measure Actuals =
+			
+			
+			VAR _Default = SUM(FactBudgetActual[ActualAmount])
+			VAR _Subtotal =
+			    CALCULATE(
+			        SUM(FactBudgetActual[ActualAmount]),
+			        DimAccountGroup[AccountGroupKey] <= MAX(DimAccountGroup[AccountGroupKey]),
+			        ALL(DimAccount)
+			    )
+			VAR _Subgroup = SELECTEDVALUE(DimAccount[AccountSubgroup])
+			VAR _Control = SELECTEDVALUE(DimAccount[ControlAccount])
+			VAR _Account = SELECTEDVALUE(DimAccount[SubsidiaryAccount])
+			
+			VAR _Result =
+			SWITCH(
+			    TRUE(),
+			        ISINSCOPE(DimAccount[ControlAccount]) && _Control = _Subgroup,BLANK(),
+			        ISINSCOPE(DimAccount[SubsidiaryAccount]) && _Account = _Control, BLANK(),
+			        NOT ISINSCOPE(DimAccount[AccountSubgroup]) && SELECTEDVALUE(DimAccountGroup[isSubtotal]) = 1,
+			        _Subtotal,
+			        _Default
+			)
+			RETURN
+			_Result
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: f3bba29f-4f1e-49d3-a29b-e8cd893ce5fb
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: 6523ba1b-601d-438b-88bd-6189c196739a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition My_Measures = calculated
+		mode: import
+		source = {0}
+
+	annotation PBI_Id = d7703a8dee3c425384cc060e8cd33fd9
+
